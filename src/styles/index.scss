@@ -1,0 +1,15 @@
+@import './variables.scss';
+
+@font-face {
+  font-family: $fontNormal;
+  src: url(../fonts/HelveticaNeue/HelveticaNeueCyr-Medium.otf);
+}
+
+@font-face {
+  font-family: $fontBold;
+  src: url(../fonts/HelveticaNeue/HelveticaNeueCyr-Bold.otf);
+}
+
+body {
+  font-family: $fontNormal;
+}
