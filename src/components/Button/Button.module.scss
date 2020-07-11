@@ -1,13 +1,15 @@
-@import '../../styles/variables.scss';
+@import "../../styles/variables.scss";
 
 .button {
-  border: 1px solid #4894d4;
+  border: none;
   border-radius: 3px;
   font-family: $fontBold;
   font-size: 14px;
   background-color: #4894d4;
+  cursor: pointer;
   width: 110px;
   padding: 9px 0 10px 0;
   text-align: center;
   color: #fff;
+  line-height: 17px;
 }

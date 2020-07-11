@@ -1,6 +1,6 @@
 import React, { memo, useState, useCallback, useMemo } from "react";
 import Input from "../Input/Input";
-import classnames from "classnames";
+import cx from "classnames";
 import styles from "./PasswordInput.module.scss";
 
 const PasswordInput = ({
@@ -28,7 +28,7 @@ const PasswordInput = ({
         {asideText}
       </span>
       <Input
-        className={classnames(styles.input, className)}
+        className={cx(styles.input, className)}
         type={inputType}
         {...props}
       />

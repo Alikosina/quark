@@ -1,19 +1,4 @@
 .App {
-  text-align: center;
-  background-image: url("./assets/images/bgimage-brand-default-1-copy.jpg");
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  background-image: url("./assets/images/bgimage-brand-default-1-copy.png");
+  background-color: #000;
 }
