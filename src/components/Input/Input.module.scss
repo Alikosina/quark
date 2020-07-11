@@ -1,7 +1,14 @@
+@import "../../styles/variables.scss";
+
 .input {
-  padding: 9px 137px 9px 9px;
+  padding: 9px 9px 9px;
+  width: 100%;
+  box-sizing: border-box;
   margin-bottom: 20px;
   border-radius: 3px;
+  font-family: $fontNormal;
+  font-size: 16px;
+  line-height: 18px;
   border: solid 1px #151515;
   background-color: #555;
   color: #fff;
