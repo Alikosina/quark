@@ -33,14 +33,19 @@ const Login = () => {
     [setPassword]
   );
 
-  const handleSignInButtonClick = useCallback(() => {
-    dispatch(
-      signInRequest({
-        userName,
-        password,
-      })
-    );
-  }, [userName, password]);
+  const handleSubmit = useCallback(
+    (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+
+      dispatch(
+        signInRequest({
+          userName,
+          password,
+        })
+      );
+    },
+    [userName, password]
+  );
 
   return (
     <>
@@ -49,13 +54,7 @@ const Login = () => {
         <div className={styles.description}>Please sign in to continue</div>
         <hr className={styles.line} />
         <img className={styles.logo} src={logo} alt="logo" />
-        <form
-          className={styles.form}
-          onSubmit={(event) => {
-            event.preventDefault();
-            console.log("submit");
-          }}
-        >
+        <form className={styles.form} onSubmit={handleSubmit}>
           <div>
             <label className={styles.label} htmlFor="userName">
               Username
@@ -77,9 +76,7 @@ const Login = () => {
             />
           </div>
           <div className={styles.formFooter}>
-            <Button onClick={handleSignInButtonClick} type="submit">
-              Sign In
-            </Button>
+            <Button type="submit">Sign In</Button>
             <span className={styles.forgotPasswordText}>Forgot password?</span>
           </div>
         </form>
