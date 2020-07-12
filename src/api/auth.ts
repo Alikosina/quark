@@ -6,3 +6,9 @@ export const signIn = async (params: SignInModel) => {
 
   return data;
 };
+
+export const passwordReset = async (email: string) => {
+  const data = await axios.post("some-url", email);
+
+  return data;
+};
