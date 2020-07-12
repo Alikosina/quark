@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useState, useCallback } from "react";
 import { useDispatch } from "react-redux";
 
 import { signInRequest } from "../../store/login/loginActions";
@@ -18,6 +18,30 @@ import styles from "./Login.module.scss";
 const Login = () => {
   const dispatch = useDispatch();
 
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleUserNameChange = useCallback(
+    (event: React.FormEvent<HTMLInputElement>) =>
+      setUserName(event.currentTarget.value),
+    [setUserName]
+  );
+
+  const handlePasswordChange = useCallback(
+    (event: React.FormEvent<HTMLInputElement>) =>
+      setPassword(event.currentTarget.value),
+    [setPassword]
+  );
+
+  const handleSignInButtonClick = useCallback(() => {
+    dispatch(
+      signInRequest({
+        userName,
+        password,
+      })
+    );
+  }, [userName, password]);
+
   return (
     <>
       <div className={styles.container}>
@@ -36,26 +60,24 @@ const Login = () => {
             <label className={styles.label} htmlFor="userName">
               Username
             </label>
-            <Input id="userName" />
+            <Input
+              value={userName}
+              onChange={handleUserNameChange}
+              id="userName"
+            />
           </div>
           <div>
             <label className={styles.label} htmlFor="password">
               Password
             </label>
-            <PasswordInput id="password" />
+            <PasswordInput
+              value={password}
+              onChange={handlePasswordChange}
+              id="password"
+            />
           </div>
           <div className={styles.formFooter}>
-            <Button
-              onClick={() => {
-                dispatch(
-                  signInRequest({
-                    userName: "dfsdf",
-                    password: "dsfsdfsd",
-                  })
-                );
-              }}
-              type="submit"
-            >
+            <Button onClick={handleSignInButtonClick} type="submit">
               Sign In
             </Button>
             <span className={styles.forgotPasswordText}>Forgot password?</span>
