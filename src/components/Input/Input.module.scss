@@ -12,10 +12,15 @@
   border: solid 1px #151515;
   background-color: #555;
   color: #fff;
+
+  &:focus {
+    outline: none;
+    border: solid 1px #888;
+    background-color: #6a6a6a;
+  }
 }
 
-.input:focus {
-  outline: none;
-  border: solid 1px #888;
-  background-color: #6a6a6a;
+.light {
+  background-color: #f7f7f7;
+  border: 1px solid #cccccc;
 }
