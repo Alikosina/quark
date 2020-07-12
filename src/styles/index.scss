@@ -2,14 +2,15 @@
 
 @font-face {
   font-family: $fontNormal;
-  src: url(../fonts/HelveticaNeue/HelveticaNeueCyr-Medium.otf);
+  src: url(../assets/fonts/HelveticaNeue/HelveticaNeueCyr-Medium.otf);
 }
 
 @font-face {
   font-family: $fontBold;
-  src: url(../fonts/HelveticaNeue/HelveticaNeueCyr-Bold.otf);
+  src: url(../assets/fonts/HelveticaNeue/HelveticaNeueCyr-Bold.otf);
 }
 
 body {
   font-family: $fontNormal;
+  font-weight: 400;
 }

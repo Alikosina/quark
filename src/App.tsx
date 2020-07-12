@@ -1,18 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Provider } from 'react-redux';
+import store from './store/store';
 import './App.css';
-import Input from './components/Input/Input';
-import Button from './components/Button/Button';
+import Login from './containers/Login';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <Input />
-        <Button> Sign In </Button>
-      </header>
+const App = () => (
+  <Provider store={store}>
+    <div id="App" className="App">
+      <Login />
     </div>
-  );
-}
+  </Provider>
+);
 
 export default App;

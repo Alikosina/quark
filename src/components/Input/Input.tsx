@@ -1,6 +1,13 @@
-import React, { InputHTMLAttributes } from 'react';
+import React, { memo } from 'react';
+import cx from 'classnames';
+
 import styles from './Input.module.scss';
 
-const Input = () => <input className={styles.input} type="text" />;
+const Input = ({
+  className,
+  ...props
+}: React.InputHTMLAttributes<HTMLInputElement>) => (
+  <input className={cx(styles.input, className)} {...props} />
+);
 
-export default Input;
+export default memo(Input);

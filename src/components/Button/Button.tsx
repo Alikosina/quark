@@ -1,9 +1,24 @@
-import React, { InputHTMLAttributes } from 'react';
-import styles from './Button.module.scss';
-import { prependOnceListener } from 'cluster';
+import React, { memo } from 'react';
+import cx from 'classnames';
 
-const Button = (props: any) => (
-  <button className={styles.button}>{props.children}</button>
+import { ButtonProps } from './ButtonTypes';
+
+import styles from './Button.module.scss';
+
+const Button = ({
+  children,
+  className,
+  skin = 'primary',
+  ...props
+}: ButtonProps) => (
+  <button
+    className={cx(styles.button, className, {
+      [styles.secondary]: skin === 'secondary',
+    })}
+    {...props}
+  >
+    {children}
+  </button>
 );
 
-export default Button;
+export default memo(Button);
