@@ -1,5 +1,8 @@
 import React, { memo } from "react";
 import Modal from "react-modal";
+
+import { PasswordResetModalProps } from "./PasswordResetModalTypes";
+
 import styles from "./PasswordResetModal.module.scss";
 
 const customStyles = {
@@ -9,17 +12,16 @@ const customStyles = {
   },
 };
 
-const PasswordResetModal = () => (
+const PasswordResetModal = ({ isOpen, onClose }: PasswordResetModalProps) => (
   <Modal
-    isOpen={false}
+    isOpen={isOpen}
     //   onAfterOpen={afterOpenModal}
-    //   onRequestClose={closeModal}
+    shouldCloseOnOverlayClick
     style={customStyles}
     overlayClassName={styles.overlay}
     contentLabel="Example Modal"
   >
-    {/* <h2 ref={_subtitle => (subtitle = _subtitle)}>Hello</h2>
-      <button onClick={closeModal}>close</button> */}
+    <button onClick={onClose}>close</button>
     <div>I am a modal</div>
     <form>
       <input />

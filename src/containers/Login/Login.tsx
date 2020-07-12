@@ -6,20 +6,27 @@ import { signInRequest } from "../../store/login/loginActions";
 import Input from "../../components/Input";
 import PasswordInput from "../../components/PasswordInput";
 import Button from "../../components/Button";
-import PasswordResetModal from "./PasswordResetModal";
+import PasswordResetModal from "../PasswordResetModal";
 import FooterItem from "../../components/FooterItem";
 
 import logo from "../../assets/images/logo.svg";
 
 import styles from "./Login.module.scss";
 
-// Modal.setAppElement("#App");
-
 const Login = () => {
   const dispatch = useDispatch();
 
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleForgotPasswordClick = useCallback(() => setIsModalOpen(true), [
+    setIsModalOpen,
+  ]);
+
+  const handleModalClose = useCallback(() => setIsModalOpen(false), [
+    setIsModalOpen,
+  ]);
 
   const handleUserNameChange = useCallback(
     (event: React.FormEvent<HTMLInputElement>) =>
@@ -44,7 +51,7 @@ const Login = () => {
         })
       );
     },
-    [userName, password]
+    [userName, password, dispatch]
   );
 
   return (
@@ -77,7 +84,12 @@ const Login = () => {
           </div>
           <div className={styles.formFooter}>
             <Button type="submit">Sign In</Button>
-            <span className={styles.forgotPasswordText}>Forgot password?</span>
+            <span
+              onClick={handleForgotPasswordClick}
+              className={styles.forgotPasswordText}
+            >
+              Forgot password?
+            </span>
           </div>
         </form>
         <hr className={styles.line} />
@@ -98,7 +110,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <PasswordResetModal />
+      <PasswordResetModal onClose={handleModalClose} isOpen={isModalOpen} />
     </>
   );
 };
