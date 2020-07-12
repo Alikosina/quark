@@ -32,11 +32,8 @@ const PasswordResetModal = ({ isOpen, onClose }: PasswordResetModalProps) => {
   return (
     <Modal
       isOpen={isOpen}
-      //   onAfterOpen={afterOpenModal}
-      shouldCloseOnOverlayClick
       style={customStyles}
       overlayClassName={styles.overlay}
-      contentLabel="Example Modal"
     >
       <div className={styles.container}>
         <span onClick={onClose} className={styles.close}></span>
