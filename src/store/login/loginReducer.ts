@@ -1,17 +1,20 @@
-import {
-  SIGN_IN_REQUEST,
-  SIGN_IN_SUCCESS,
-  SIGN_IN_FAIL,
-} from "./loginConstants";
+import { handleActions } from "redux-actions";
+import { signInRequest, signInFail, signInSuccess } from "./loginActions";
 
 const initialState = {
   loading: false,
   error: null,
 };
 
-export default (state = initialState, action: any) => {
-  switch (action.type) {
-    default:
-      return state;
-  }
-};
+export default handleActions(
+  {
+    [`${signInRequest}`]: () => ({ ...initialState, loading: true }),
+    [`${signInFail}`]: (state, { payload: { error } }) => ({
+      ...state,
+      loading: false,
+      error,
+    }),
+    [`${signInSuccess}`]: () => ({ ...initialState }),
+  },
+  initialState
+);

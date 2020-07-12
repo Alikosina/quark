@@ -1,6 +1,8 @@
 import React, { memo } from "react";
-import { FooterItemProps } from "./FooterItemTypes";
 import cx from "classnames";
+
+import { FooterItemProps } from "./FooterItemTypes";
+
 import styles from "./FooterItem.module.scss";
 
 const FooterItem = ({ title, date, text, className }: FooterItemProps) => (

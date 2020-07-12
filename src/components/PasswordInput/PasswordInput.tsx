@@ -1,6 +1,8 @@
 import React, { memo, useState, useCallback, useMemo } from "react";
-import Input from "../Input/Input";
 import cx from "classnames";
+
+import Input from "../Input/Input";
+
 import styles from "./PasswordInput.module.scss";
 
 const PasswordInput = ({

@@ -1,4 +1,7 @@
 import React, { memo } from "react";
+import { useDispatch } from "react-redux";
+
+import { signInRequest } from "../../store/login/loginActions";
 
 import Input from "../../components/Input";
 import PasswordInput from "../../components/PasswordInput";
@@ -12,57 +15,73 @@ import styles from "./Login.module.scss";
 
 // Modal.setAppElement("#App");
 
-const Login = () => (
-  <>
-    <div className={styles.container}>
-      <h1 className={styles.title}>Welcome</h1>
-      <div className={styles.description}>Please sign in to continue</div>
-      <hr className={styles.line} />
-      <img className={styles.logo} src={logo} alt="logo" />
-      <form
-        className={styles.form}
-        onSubmit={(event) => {
-          event.preventDefault();
-          console.log("submit");
-        }}
-      >
-        <div>
-          <label className={styles.label} htmlFor="userName">
-            Username
-          </label>
-          <Input id="userName" />
-        </div>
-        <div>
-          <label className={styles.label} htmlFor="password">
-            Password
-          </label>
-          <PasswordInput id="password" />
-        </div>
-        <div className={styles.formFooter}>
-          <Button type="submit">Sign In</Button>
-          <span className={styles.forgotPasswordText}>Forgot password?</span>
-        </div>
-      </form>
-      <hr className={styles.line} />
-      <div className={styles.footer}>
-        <div>
-          <FooterItem
-            title="LATEST BLOG POST"
-            date="October 15, 2018"
-            text="Create Efficiency with a Creative Asset Management Platform"
-          />
-        </div>
-        <div>
-          <FooterItem
-            title="RECENT TWEET"
-            date="April 15, 2018"
-            text="#HenryStewartEvents are bringing their #CreativeOps show to NYC for the third…"
-          />
+const Login = () => {
+  const dispatch = useDispatch();
+
+  return (
+    <>
+      <div className={styles.container}>
+        <h1 className={styles.title}>Welcome</h1>
+        <div className={styles.description}>Please sign in to continue</div>
+        <hr className={styles.line} />
+        <img className={styles.logo} src={logo} alt="logo" />
+        <form
+          className={styles.form}
+          onSubmit={(event) => {
+            event.preventDefault();
+            console.log("submit");
+          }}
+        >
+          <div>
+            <label className={styles.label} htmlFor="userName">
+              Username
+            </label>
+            <Input id="userName" />
+          </div>
+          <div>
+            <label className={styles.label} htmlFor="password">
+              Password
+            </label>
+            <PasswordInput id="password" />
+          </div>
+          <div className={styles.formFooter}>
+            <Button
+              onClick={() => {
+                dispatch(
+                  signInRequest({
+                    userName: "dfsdf",
+                    password: "dsfsdfsd",
+                  })
+                );
+              }}
+              type="submit"
+            >
+              Sign In
+            </Button>
+            <span className={styles.forgotPasswordText}>Forgot password?</span>
+          </div>
+        </form>
+        <hr className={styles.line} />
+        <div className={styles.footer}>
+          <div>
+            <FooterItem
+              title="LATEST BLOG POST"
+              date="October 15, 2018"
+              text="Create Efficiency with a Creative Asset Management Platform"
+            />
+          </div>
+          <div>
+            <FooterItem
+              title="RECENT TWEET"
+              date="April 15, 2018"
+              text="#HenryStewartEvents are bringing their #CreativeOps show to NYC for the third…"
+            />
+          </div>
         </div>
       </div>
-    </div>
-    <PasswordResetModal />
-  </>
-);
+      <PasswordResetModal />
+    </>
+  );
+};
 
 export default memo(Login);
