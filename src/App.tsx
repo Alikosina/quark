@@ -3,7 +3,7 @@ import "./App.css";
 import Login from "./containers/Login";
 
 const App = () => (
-  <div className="App">
+  <div id="App" className="App">
     <Login />
   </div>
 );

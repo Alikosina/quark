@@ -1,0 +1,25 @@
+@import "../../styles/variables.scss";
+
+.container {
+  width: 170px;
+}
+
+.title {
+  color: #fff;
+  font-family: $fontBold;
+  font-size: 13px;
+  line-height: 16px;
+  margin-bottom: 13px;
+}
+
+.date {
+  color: $greyColor;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.text {
+  color: $greyColor;
+  font-size: 13px;
+  line-height: 18px;
+}
