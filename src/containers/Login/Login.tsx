@@ -68,6 +68,7 @@ const Login = () => {
             </label>
             <Input
               value={userName}
+              className={styles.input}
               onChange={handleUserNameChange}
               id="userName"
             />
@@ -78,6 +79,7 @@ const Login = () => {
             </label>
             <PasswordInput
               value={password}
+              className={styles.input}
               onChange={handlePasswordChange}
               id="password"
             />
