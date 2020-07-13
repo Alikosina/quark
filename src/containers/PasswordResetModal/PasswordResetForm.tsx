@@ -4,13 +4,11 @@ import Input from "../../components/Input";
 import Button from "../../components/Button";
 import ModalHeader from "../../components/ModalHeader";
 
+import { PasswordResetFormProps } from "./PasswordResetModalTypes";
+
 import styles from "./PasswordResetForm.module.scss";
 
-const PasswordResetForm = ({
-  onSubmit,
-}: {
-  onSubmit: (email: string) => void;
-}) => {
+const PasswordResetForm = ({ onSubmit }: PasswordResetFormProps) => {
   const [emailValue, setEmailValue] = useState("");
 
   const handleEmailChange = useCallback(
