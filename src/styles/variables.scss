@@ -10,3 +10,10 @@ $secondaryColor: #999;
 
 //breakpoints
 $mobileBreakpoint: 450px;
+
+//the media mixin
+@mixin media($args...) {
+  @media (max-width: $mobileBreakpoint) {
+    @content;
+  }
+}
