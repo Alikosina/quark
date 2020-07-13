@@ -1,6 +1,6 @@
 // font-families
-$fontBold: 'HelveticaNeueBold';
-$fontNormal: 'HelveticaNeue';
+$fontBold: "HelveticaNeueBold";
+$fontNormal: "HelveticaNeue";
 
 // colors
 $lightGreyColor: #aaa;
@@ -12,7 +12,7 @@ $secondaryColor: #999;
 $mobileBreakpoint: 450px;
 
 //the media mixin
-@mixin media($args...) {
+@mixin media() {
   @media (max-width: $mobileBreakpoint) {
     @content;
   }
