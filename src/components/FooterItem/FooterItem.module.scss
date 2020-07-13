@@ -1,7 +1,10 @@
-@import "../../styles/variables.scss";
+@import '../../styles/variables.scss';
 
 .container {
   width: 170px;
+  @include media() {
+    display: none;
+  }
 }
 
 .title {

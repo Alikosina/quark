@@ -1,4 +1,11 @@
+@import '../../styles/variables.scss';
+
 .container {
   background-image: url('../../assets/images/bgimage.png');
   background-color: #000;
+  @include media() {
+    background-position: center bottom;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
 }

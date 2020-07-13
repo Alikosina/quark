@@ -9,17 +9,6 @@ import SuccessMessage from './SuccessMessage';
 import styles from './PasswordResetModal.module.scss';
 
 const customStyles = {
-  content: {
-    padding: 0,
-    left: '50%',
-    right: 'auto',
-    marginRight: '-50%',
-    bottom: 'auto',
-    borderRadius: 3,
-    border: 'none',
-    width: 600,
-    transform: 'translate(-50%, 0)',
-  },
   overlay: {
     backgroundColor: 'transparent',
   },
@@ -32,6 +21,7 @@ const PasswordResetModal = ({ isOpen, onClose }: PasswordResetModalProps) => {
   return (
     <Modal
       isOpen={isOpen}
+      className={styles.content}
       style={customStyles}
       overlayClassName={styles.overlay}
     >

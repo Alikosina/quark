@@ -1,4 +1,4 @@
-@import "../../styles/variables.scss";
+@import '../../styles/variables.scss';
 
 .container {
   width: 700px;
@@ -6,6 +6,11 @@
   box-sizing: border-box;
   background-color: rgba(0, 0, 0, 0.6);
   min-height: 100vh;
+  @include media() {
+    padding: 113px 20px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
 }
 
 .title {
@@ -15,6 +20,9 @@
   margin-top: 0;
   margin-bottom: 9px;
   font-family: $fontBold;
+  @include media() {
+    font-size: 26px;
+  }
 }
 
 .description {
@@ -22,6 +30,9 @@
   font-size: 26px;
   line-height: 31px;
   margin-bottom: 24px;
+  @include media() {
+    font-size: 20px;
+  }
 }
 
 .line {
@@ -34,6 +45,9 @@
   margin-top: 31px;
   margin-bottom: 20px;
   width: 237px;
+  @include media() {
+    width: 200px;
+  }
 }
 
 .label {
@@ -41,6 +55,9 @@
   font-size: 16px;
   margin-bottom: 9.5px;
   display: inline-block;
+  @include media() {
+    font-size: 13px;
+  }
 }
 
 .form {
