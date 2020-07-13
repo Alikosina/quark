@@ -1,23 +1,43 @@
-import React, { memo, useState, useCallback } from 'react';
-import Modal from 'react-modal';
+import React, { memo, useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { PasswordResetModalProps } from './PasswordResetModalTypes';
+import {
+  sendEmailRequest,
+  setInitialState,
+} from "../../store/resetPassword/resetPasswordActions";
 
-import PasswordResetForm from './PasswordResetForm';
-import SuccessMessage from './SuccessMessage';
+import Modal from "react-modal";
 
-import styles from './PasswordResetModal.module.scss';
+import { PasswordResetModalProps } from "./PasswordResetModalTypes";
+
+import PasswordResetForm from "./PasswordResetForm";
+import SuccessMessage from "./SuccessMessage";
+
+import styles from "./PasswordResetModal.module.scss";
 
 const customStyles = {
   overlay: {
-    backgroundColor: 'transparent',
+    backgroundColor: "transparent",
   },
 };
 
 const PasswordResetModal = ({ isOpen, onClose }: PasswordResetModalProps) => {
-  const [isSent, setIsSent] = useState(false);
+  const dispatch = useDispatch();
 
-  const handleSubmit = useCallback(() => setIsSent(true), [setIsSent]);
+  const { isSent } = useSelector((state: any) => state.resetPassword);
+
+  const handleSubmit = useCallback(
+    (email: string) => {
+      dispatch(sendEmailRequest(email));
+    },
+    [dispatch]
+  );
+
+  const handleClose = useCallback(() => {
+    dispatch(setInitialState());
+    onClose();
+  }, [onClose, dispatch]);
+
   return (
     <Modal
       isOpen={isOpen}
@@ -26,7 +46,7 @@ const PasswordResetModal = ({ isOpen, onClose }: PasswordResetModalProps) => {
       overlayClassName={styles.overlay}
     >
       <div className={styles.container}>
-        <span onClick={onClose} className={styles.close}></span>
+        <span onClick={handleClose} className={styles.close}></span>
         {isSent ? (
           <SuccessMessage />
         ) : (

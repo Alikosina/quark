@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import "../../styles/variables.scss";
 
 .input {
   padding: 9px 9px 9px;
@@ -9,8 +9,11 @@
   font-family: $fontNormal;
   font-size: 16px;
   line-height: 18px;
-  border: solid 1px #151515;
+}
+
+.dark {
   background-color: #555;
+  border: solid 1px #151515;
   color: #fff;
 
   &:focus {

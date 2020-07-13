@@ -1,19 +1,31 @@
-import React, { memo, useCallback } from 'react';
+import React, { memo, useCallback, useState } from "react";
 
-import Input from '../../components/Input';
-import Button from '../../components/Button';
-import ModalHeader from '../../components/ModalHeader';
+import Input from "../../components/Input";
+import Button from "../../components/Button";
+import ModalHeader from "../../components/ModalHeader";
 
-import styles from './PasswordResetForm.module.scss';
+import styles from "./PasswordResetForm.module.scss";
 
-const PasswordResetForm = ({ onSubmit }: { onSubmit: () => void }) => {
+const PasswordResetForm = ({
+  onSubmit,
+}: {
+  onSubmit: (email: string) => void;
+}) => {
+  const [emailValue, setEmailValue] = useState("");
+
+  const handleEmailChange = useCallback(
+    (e: React.FormEvent<HTMLInputElement>) =>
+      setEmailValue(e.currentTarget.value),
+    [setEmailValue]
+  );
+
   const handleSubmit = useCallback(
     (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
 
-      onSubmit();
+      onSubmit(emailValue);
     },
-    [onSubmit]
+    [onSubmit, emailValue]
   );
 
   return (
@@ -29,7 +41,13 @@ const PasswordResetForm = ({ onSubmit }: { onSubmit: () => void }) => {
             <label className={styles.label} htmlFor="email">
               Email address
             </label>
-            <Input skin="light" id="email" type="email" />
+            <Input
+              value={emailValue}
+              onChange={handleEmailChange}
+              skin="light"
+              id="email"
+              type="email"
+            />
           </div>
         </div>
         <div className={styles.footer}>
