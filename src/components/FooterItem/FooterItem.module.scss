@@ -1,14 +1,14 @@
-@import '../../styles/variables.scss';
+@import "../../styles/variables.scss";
 
 .container {
   width: 170px;
-  @include media() {
+  @include mobileMedia() {
     display: none;
   }
 }
 
 .title {
-  color: #fff;
+  color: $whiteColor;
   font-family: $fontBold;
   font-size: 13px;
   line-height: 16px;

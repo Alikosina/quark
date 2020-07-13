@@ -7,12 +7,19 @@ $lightGreyColor: #aaa;
 $darkGreyColor: #555;
 $primaryColor: #4894d4;
 $secondaryColor: #999;
+$silverColor: #ccc;
+$dimGreyColor: #6a6a6a;
+$greyColor: #888;
+$neroColor: #151515;
+$whiteSmokeColor: #f7f7f7;
+$whiteColor: #fff;
+$nightRiderColor: #333;
 
 //breakpoints
 $mobileBreakpoint: 450px;
 
 //the media mixin
-@mixin media() {
+@mixin mobileMedia() {
   @media (max-width: $mobileBreakpoint) {
     @content;
   }

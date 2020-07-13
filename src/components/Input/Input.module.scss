@@ -1,29 +1,35 @@
 @import "../../styles/variables.scss";
 
 .input {
-  padding: 9px 9px 9px;
+  padding: 11px;
   width: 100%;
   box-sizing: border-box;
   margin-bottom: 20px;
   border-radius: 3px;
   font-family: $fontNormal;
-  font-size: 16px;
-  line-height: 18px;
+  font-size: 19px;
+  line-height: 22px;
+
+  @include mobileMedia() {
+    padding: 9px;
+    font-size: 16px;
+    line-height: 18px;
+  }
 }
 
 .dark {
-  background-color: #555;
-  border: solid 1px #151515;
-  color: #fff;
+  background-color: $darkGreyColor;
+  border: solid 1px $neroColor;
+  color: $whiteColor;
 
   &:focus {
     outline: none;
-    border: solid 1px #888;
-    background-color: #6a6a6a;
+    border: solid 1px $greyColor;
+    background-color: $dimGreyColor;
   }
 }
 
 .light {
-  background-color: #f7f7f7;
-  border: 1px solid #cccccc;
+  background-color: $whiteSmokeColor;
+  border: 1px solid $silverColor;
 }
