@@ -8,8 +8,10 @@ import {
 
 const initialState = {
   loading: false,
-  isSent: false,
   error: null,
+  data: {
+    isSent: false,
+  },
 };
 
 export default handleActions(
@@ -19,10 +21,17 @@ export default handleActions(
       ...state,
       loading: false,
       // специально для отображения SuccessMessage
-      isSent: true,
+      data: {
+        isSent: true,
+      },
       error,
     }),
-    [`${sendEmailSuccess}`]: () => ({ ...initialState, isSent: true }),
+    [`${sendEmailSuccess}`]: () => ({
+      ...initialState,
+      data: {
+        isSent: true,
+      },
+    }),
     [`${setInitialState}`]: () => ({ ...initialState }),
   },
   initialState

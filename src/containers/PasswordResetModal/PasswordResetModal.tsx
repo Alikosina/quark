@@ -14,6 +14,7 @@ import PasswordResetForm from "./PasswordResetForm";
 import SuccessMessage from "./SuccessMessage";
 
 import styles from "./PasswordResetModal.module.scss";
+import { StoreModel } from "../../models/storeModel";
 
 const customStyles = {
   overlay: {
@@ -24,7 +25,9 @@ const customStyles = {
 const PasswordResetModal = ({ isOpen, onClose }: PasswordResetModalProps) => {
   const dispatch = useDispatch();
 
-  const { isSent } = useSelector((state: any) => state.resetPassword);
+  const { isSent } = useSelector(
+    (state: StoreModel) => state.resetPassword.data
+  );
 
   const handleSubmit = useCallback(
     (email: string) => {
